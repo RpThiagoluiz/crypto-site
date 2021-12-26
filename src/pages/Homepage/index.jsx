@@ -3,7 +3,7 @@ import { Row, Col, Statistic } from "antd";
 import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "services";
 
-import { Title } from "components";
+import { Title, Loader } from "components";
 import { Cryptocurrencies, News } from "pages";
 
 const Homepage = () => {
@@ -11,9 +11,7 @@ const Homepage = () => {
 
   const globalStats = data?.data?.stats;
 
-  if (isFetching) {
-    return <div>Loading...</div>;
-  }
+  if (isFetching) return <Loader />;
 
   return (
     <>
